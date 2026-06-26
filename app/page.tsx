@@ -45,8 +45,17 @@ export default function Home() {
         <i className="button fab fa-youtube" onClick={() => { window.open("https://www.youtube.com/@thekendrew1") }}></i>
       </nav>
       <header>
-        <video id="intro-video" src="/videos/intro-hd.mp4" autoPlay onEnded={(e) => {
-          e.currentTarget.remove();
+        <video id="intro-video" src="/videos/intro-hd.mp4" muted autoPlay onClick={(e) => {
+          if (e.currentTarget.style.opacity === "0") {
+            e.currentTarget.style.opacity = "1";
+            e.currentTarget.muted = false;
+            e.currentTarget.currentTime = 0;
+            e.currentTarget.play();
+          }
+        }} onEnded={(e) => {
+          e.currentTarget.style.opacity = "0";
+        }} onError={(e) => {
+          e.currentTarget.style.opacity = "0";
         }}></video>
         <video id="loop-video" src="/videos/loop-hd.mp4" autoPlay muted loop></video>
       </header>
