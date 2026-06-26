@@ -45,7 +45,7 @@ export default function Home() {
         <i className="button fab fa-youtube" onClick={() => { window.open("https://www.youtube.com/@thekendrew1") }}></i>
       </nav>
       <header>
-        <video id="intro-video" src="/videos/intro-hd.mp4" muted autoPlay onClick={(e) => {
+        <video id="intro-video" playsInline src="/videos/intro-hd.mp4" muted autoPlay onClick={(e) => {
           if (e.currentTarget.style.opacity === "0") {
             e.currentTarget.style.opacity = "1";
             e.currentTarget.muted = false;
@@ -57,7 +57,7 @@ export default function Home() {
         }} onError={(e) => {
           e.currentTarget.style.opacity = "0";
         }}></video>
-        <video id="loop-video" src="/videos/loop-hd.mp4" autoPlay muted loop></video>
+        <video id="loop-video" playsInline src="/videos/loop-hd.mp4" autoPlay muted loop></video>
       </header>
       <LoopText loopTexts={loopTexts} />
       <div className="splitter"></div>
